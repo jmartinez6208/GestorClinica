@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0be067a1-2721-48be-bd59-22409a17e955">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cedula" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     citas.`ID_CIT` AS citas_ID_CIT,
+     citas.`ID_PAC_ATE` AS citas_ID_PAC_ATE,
+     citas.`ID_DOC_ATE` AS citas_ID_DOC_ATE,
+     citas.`FEC_CIT` AS citas_FEC_CIT,
+     citas.`EST_CIT` AS citas_EST_CIT,
+     citas.`COST_CIT` AS citas_COST_CIT
+FROM
+     `citas` citas
+WHERE
+citas.`ID_PAC_ATE`=$P{cedula}	AND 
+citas.`EST_CIT`='ATENDIDA']]>
+	</queryString>
+	<field name="citas_ID_CIT" class="java.lang.Integer"/>
+	<field name="citas_ID_PAC_ATE" class="java.lang.String"/>
+	<field name="citas_ID_DOC_ATE" class="java.lang.String"/>
+	<field name="citas_FEC_CIT" class="java.lang.String"/>
+	<field name="citas_EST_CIT" class="java.lang.String"/>
+	<field name="citas_COST_CIT" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="72" height="20" uuid="262cd451-72f4-4449-92e0-c8e8794869b0"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Num.Cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="2" width="148" height="20" uuid="9dc5e766-662d-4cb7-95aa-b64ec836861a"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de la Cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="326" y="0" width="100" height="22" uuid="7131a9bf-a43e-47a3-bae9-118b9ae851be"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Costo Cita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="2" width="106" height="20" uuid="049b0930-e310-4615-83e8-48b72476770f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Doctor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="72" height="20" uuid="574ea16c-4b2a-4558-b015-62e381ea81ee"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{citas_ID_CIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="0" width="148" height="20" uuid="4e13bd24-ae14-4a8f-8ea8-3922f2951869"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{citas_FEC_CIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="3" width="106" height="20" uuid="0b5848d8-5524-40d2-93e1-ebee85e1d43f"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{citas_ID_DOC_ATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="326" y="3" width="100" height="20" uuid="6eb9530a-b256-4e9d-8c36-403d390f89e2"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{citas_COST_CIT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

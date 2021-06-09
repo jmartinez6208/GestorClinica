@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c0117303-8190-4932-96b0-1a469748cbf6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<style/>
+		</conditionalStyle>
+	</style>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="cedula" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Documents\\Mateo\\UTA\\Cuarto Semestre\\Modelamiento\\Segundo Parcial\\Proyecto\\GestorClinica\\src\\reportes\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     pacientes.`ID_PAC` AS pacientes_ID_PAC,
+     pacientes.`NOM_PAC` AS pacientes_NOM_PAC,
+     pacientes.`APE_PAC` AS pacientes_APE_PAC,
+     pacientes.`FEC_NAC` AS pacientes_FEC_NAC,
+     pacientes.`CEL_PAC` AS pacientes_CEL_PAC
+FROM
+     `pacientes` pacientes
+WHERE
+pacientes.`ID_PAC`=$P{cedula}]]>
+	</queryString>
+	<field name="pacientes_ID_PAC" class="java.lang.String"/>
+	<field name="pacientes_NOM_PAC" class="java.lang.String"/>
+	<field name="pacientes_APE_PAC" class="java.lang.String"/>
+	<field name="pacientes_FEC_NAC" class="java.sql.Date"/>
+	<field name="pacientes_CEL_PAC" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CCCCCC" uuid="04207726-b19b-4a00-9afa-922a28c555e5"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#000000" backcolor="#F0F0F0" uuid="99d11ea4-0063-4229-927a-b7d310fade8c"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<rectangle>
+				<reportElement x="0" y="0" width="451" height="100" backcolor="#006666" uuid="6edd254c-a717-4b1d-b119-02919dea5a70"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Title" x="5" y="0" width="451" height="66" uuid="e195a2a3-983f-4c01-ba68-d1e23f396671"/>
+				<textElement>
+					<font size="36" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CLINICA ODONTOLÓGICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="68" y="66" width="325" height="29" uuid="1ce14c8f-7c32-488e-8920-1cfa8caaa69f"/>
+				<textElement>
+					<font size="22" isBold="false"/>
+				</textElement>
+				<text><![CDATA[HISTORIA CLÍNICA PACIENTE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="451" y="0" width="104" height="132" uuid="584a7b03-fe73-4c48-a81a-b50ad31c368c"/>
+				<imageExpression><![CDATA["D:\\Documents\\Mateo\\UTA\\Cuarto Semestre\\Modelamiento\\Segundo Parcial\\Proyecto\\GestorClinica\\src\\imagenes\\01.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="7" width="111" height="18" forecolor="#000000" uuid="22836e42-aea4-4da5-8052-800da23e3a9d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CÉDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="111" y="7" width="84" height="18" forecolor="#000000" uuid="320082a9-04a1-4ad9-aaa7-088c5ec29cbe"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="195" y="7" width="89" height="18" forecolor="#000000" uuid="a4c6c9ba-20ed-4445-9246-f09d7cdf5341"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="284" y="7" width="134" height="18" forecolor="#000000" uuid="2d25c746-60d6-4e6f-a960-1a8855afbdb9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FEC. NACIMIENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="418" y="8" width="111" height="18" forecolor="#000000" uuid="d6524ef2-bfa0-41d7-96cc-664c280f525a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CELULAR]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="127" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="8354cc61-4096-4837-9cc1-2884d6266a7e"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="111" height="18" uuid="eb3ff6e2-48c0-49b9-b0e9-cf8f691cbaab"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pacientes_ID_PAC}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="111" y="0" width="84" height="18" uuid="2532d3a6-14a5-4ce6-8ccd-11fac7391846"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pacientes_NOM_PAC}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="196" y="0" width="88" height="18" uuid="f266f581-b897-4982-bbb0-46a8c2ca6a30"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pacientes_APE_PAC}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="284" y="0" width="122" height="18" uuid="5cba63bf-dad9-49f0-9742-df04add9e1b4"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pacientes_FEC_NAC}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="418" y="0" width="111" height="18" uuid="0fee9b86-2017-4fb2-8fe4-1d61c92d140d"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pacientes_CEL_PAC}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<subreport>
+				<reportElement x="0" y="27" width="553" height="100" uuid="82fb5a11-4791-4092-8da0-81912b908b46"/>
+				<subreportParameter name="cedula">
+					<subreportParameterExpression><![CDATA[$P{cedula}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "detalleCitas.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="28" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-2" y="0" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="2d318ff1-651c-43df-b56a-816efcf89c23"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="9469005f-6f76-4800-a2c2-c4f4c0cd1836"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="dc8ca729-b7d3-424c-be7f-1df0a5cac22a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="0" y="4" width="197" height="20" forecolor="#FFFFFF" uuid="39c5d092-f540-4b2d-a053-098abb32c226"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
