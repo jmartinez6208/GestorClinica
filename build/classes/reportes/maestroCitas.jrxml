@@ -71,8 +71,8 @@ pacientes.`ID_PAC`=$P{cedula}]]>
 				<text><![CDATA[HISTORIA CLÍNICA PACIENTE]]></text>
 			</staticText>
 			<image>
-				<reportElement x="451" y="0" width="104" height="132" uuid="584a7b03-fe73-4c48-a81a-b50ad31c368c"/>
-				<imageExpression><![CDATA["D:\\Documents\\Mateo\\UTA\\Cuarto Semestre\\Modelamiento\\Segundo Parcial\\Proyecto\\GestorClinica\\src\\imagenes\\01.png"]]></imageExpression>
+				<reportElement x="451" y="0" width="102" height="100" uuid="3b5c40c7-053e-4db2-bbd2-083d9134411a"/>
+				<imageExpression><![CDATA["C:\\GestorClinica\\src\\imagenes\\01.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>

@@ -65,8 +65,8 @@ WHERE
 				</textField>
 			</frame>
 			<image>
-				<reportElement x="451" y="2" width="104" height="110" uuid="985aaefc-f71c-48fa-bc98-f4097d814e1e"/>
-				<imageExpression><![CDATA["D:\\Documents\\Mateo\\UTA\\Cuarto Semestre\\Modelamiento\\Segundo Parcial\\Proyecto\\GestorClinica\\src\\imagenes\\01.png"]]></imageExpression>
+				<reportElement x="451" y="0" width="102" height="95" uuid="6e4cab29-c922-4475-9eba-39d80614abea"/>
+				<imageExpression><![CDATA["C:\\GestorClinica\\src\\imagenes\\01.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
