@@ -21,9 +21,9 @@ public class Conexion {
         java.sql.Connection connect = null;
         try {
             //middleware
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             // de donde saco la conexion, usuario, clave
-            connect=DriverManager.getConnection ("jdbc:mysql://db4free.net:3306/gestor_clinica","grupo1_ajm", "grupo1_ajm");
+            connect=DriverManager.getConnection ("jdbc:mysql://sql10.freemysqlhosting.net/sql10419109","sql10419109", "ZL2FIuti29");
             //JOptionPane.showMessageDialog(null, "Ok, conectado");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
