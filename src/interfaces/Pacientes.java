@@ -25,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Pacientes extends javax.swing.JInternalFrame {
 
+    Connection cn = Conexion.getInstancia();
     DefaultTableModel modelo = new DefaultTableModel();
     DefaultComboBoxModel modelo1 = new DefaultComboBoxModel();
     DefaultComboBoxModel modelo2 = new DefaultComboBoxModel();
@@ -126,9 +127,6 @@ public class Pacientes extends javax.swing.JInternalFrame {
                     celular = jtxtTelefono.getText();
                 }
                 //
-                Conexion cc = new Conexion();
-                Connection cn = cc.conectar();
-                //
                 String sql = "";
                 sql = "insert into pacientes values(?,?,?,?,?)";
                 //
@@ -161,8 +159,6 @@ public class Pacientes extends javax.swing.JInternalFrame {
             //
             String[] registros = new String[5];
             // obtener la tabla de la base de datos
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select * from pacientes where ID_PAC like '%" + dato + "%'order by ID_PAC";

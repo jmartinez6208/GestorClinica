@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class GenerarCita extends javax.swing.JInternalFrame {
 
+    Connection cn = Conexion.getInstancia();
     DefaultComboBoxModel modelo1 = new DefaultComboBoxModel();
     DefaultComboBoxModel modelo2;
 
@@ -47,8 +48,6 @@ public class GenerarCita extends javax.swing.JInternalFrame {
         try {
 
             String registro = new String();
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select NOM_ESP from especialidades";
@@ -69,8 +68,6 @@ public class GenerarCita extends javax.swing.JInternalFrame {
     public String obtenerIdEspecialidades(String nombre) {
         try {
             String registro = new String();
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select ID_ESP from especialidades where NOM_ESP = '" + nombre + "'";
@@ -92,8 +89,6 @@ public class GenerarCita extends javax.swing.JInternalFrame {
             String nombre = new String();
             String apellido = new String();
             String registro = new String();
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select NOM_DOC, APE_DOC from doctores where ID_ESP_PER='" + id + "'";
@@ -117,8 +112,6 @@ public class GenerarCita extends javax.swing.JInternalFrame {
         try {
 
             String registro = new String();
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select ID_DOC from doctores where NOM_DOC = '" + datos[0] + "' and APE_DOC ='" + datos[1] + "'";
@@ -137,8 +130,6 @@ public class GenerarCita extends javax.swing.JInternalFrame {
     public boolean comprobarPaciente(String ced) {
         try {
             String[] registro = new String[2];
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select NOM_PAC, APE_PAC from pacientes where ID_PAC = '" + ced + "'";
@@ -222,8 +213,6 @@ public class GenerarCita extends javax.swing.JInternalFrame {
     
     public Integer obtenerNumCita(){
         try {
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select MAX(ID_CIT) from citas";
@@ -249,8 +238,6 @@ public class GenerarCita extends javax.swing.JInternalFrame {
                 String estado = "PENDIENTE";
                 String costo = "35.00";
                 //
-                Conexion cc = new Conexion();
-                Connection cn = cc.conectar();
                 //
                 String sql = "";
                 sql = "insert into citas values(?,?,?,?,?,?)";

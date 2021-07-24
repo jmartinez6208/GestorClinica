@@ -28,6 +28,7 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class ReporteHistoriaC extends javax.swing.JInternalFrame {
 
+    Connection cn = Conexion.getInstancia();
     /**
      * Creates new form ReporteCurso
      */
@@ -38,9 +39,6 @@ public class ReporteHistoriaC extends javax.swing.JInternalFrame {
     
     public void generarReporte(){
         try {
-            //Conectar
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //Que parametros debo mandar
             Map parametros = new HashMap();
             parametros.put("cedula"/*de donde saco parametro*/, jtxtCedula.getText());
@@ -51,7 +49,7 @@ public class ReporteHistoriaC extends javax.swing.JInternalFrame {
             jPanel1.revalidate();
             
             JasperReport reporte = JasperCompileManager.compileReport("C:\\GestorClinica\\src\\reportes\\maestroCitas.jrxml");
-            JasperPrint imprimir = JasperFillManager.fillReport(reporte,parametros,cc.conectar());
+            JasperPrint imprimir = JasperFillManager.fillReport(reporte,parametros,cn);
             JRViewer v = new JRViewer(imprimir);
             jPanel1.setLayout(new BorderLayout());
             jPanel1.add(v);

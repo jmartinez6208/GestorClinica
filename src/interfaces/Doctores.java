@@ -25,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Doctores extends javax.swing.JInternalFrame {
 
+    Connection cn = Conexion.getInstancia();
     DefaultTableModel modelo = new DefaultTableModel();
     DefaultComboBoxModel modelo1 = new DefaultComboBoxModel();
 
@@ -57,8 +58,6 @@ public class Doctores extends javax.swing.JInternalFrame {
         try {
 
             String registro = new String();
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select ID_ESP from especialidades";
@@ -79,8 +78,6 @@ public class Doctores extends javax.swing.JInternalFrame {
         try {
 
             String registro = new String();
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select NOM_ESP from especialidades where ID_ESP = '" + id + "'";
@@ -168,9 +165,7 @@ public class Doctores extends javax.swing.JInternalFrame {
                 String apellido = jtxtApellido.getText();
                 String cargo = jtxtCargo.getText();
                 String especialidad = String.valueOf(jcbxEspecialidad.getSelectedItem());
-                //
-                Conexion cc = new Conexion();
-                Connection cn = cc.conectar();
+                
                 //
                 String sql = "";
                 sql = "insert into doctores values(?,?,?,?,?)";
@@ -204,8 +199,6 @@ public class Doctores extends javax.swing.JInternalFrame {
             //
             String[] registros = new String[5];
             // obtener la tabla de la base de datos
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select * from doctores where ID_DOC like '%" + dato + "%'order by ID_DOC";

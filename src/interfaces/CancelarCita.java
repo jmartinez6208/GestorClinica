@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
  * @author DELL
  */
 public class CancelarCita extends javax.swing.JInternalFrame {
+    Connection cn = Conexion.getInstancia();
     DefaultTableModel modelo;
     /**
      * Creates new form AtenderCita
@@ -46,8 +47,6 @@ public class CancelarCita extends javax.swing.JInternalFrame {
             //
             String[] registros = new String[3];
             // obtener la tabla de la base de datos
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select ID_CIT, ID_DOC_ATE, FEC_CIT from citas where EST_CIT= 'PENDIENTE'AND ID_PAC_ATE like '%" + cedula + "%'order by ID_CIT";
@@ -72,8 +71,6 @@ public class CancelarCita extends javax.swing.JInternalFrame {
     public boolean comprobarPaciente(String ced) {
         try {
             String[] registro = new String[2];
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select NOM_PAC, APE_PAC from pacientes where ID_PAC = '" + ced + "'";
@@ -100,8 +97,6 @@ public class CancelarCita extends javax.swing.JInternalFrame {
     
     public void cancelarCita(String idCita){
         try {
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             String sql = "";
             sql = "UPDATE citas SET EST_CIT ='CANCELADA' WHERE ID_CIT ='" + idCita + "'";
             PreparedStatement psd = cn.prepareStatement(sql);

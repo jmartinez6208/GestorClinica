@@ -25,6 +25,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Ingreso extends javax.swing.JFrame {
 
+    Connection cn = Conexion.getInstancia();
+    
     public Ingreso() {
         initComponents();
         this.setIconImage(getIconImage());
@@ -67,8 +69,6 @@ public class Ingreso extends javax.swing.JFrame {
             //
             String[] campos = new String[2];
             // obtener la tabla de la base de datos
-            Conexion cc = new Conexion();
-            Connection cn = cc.conectar();
             //
             String sql = "";
             sql = "select CLA_USU from usuarios where CED_USU = '" + dato + "'";
