@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-07-2021 a las 20:16:48
--- Versión del servidor: 10.4.16-MariaDB
--- Versión de PHP: 7.4.12
+-- Tiempo de generación: 24-07-2021 a las 21:45:14
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -163,7 +163,7 @@ CREATE TABLE `usuarios` (
   `NOM_USU` varchar(12) NOT NULL,
   `APE_USU` varchar(12) NOT NULL,
   `CLA_USU` varchar(4) NOT NULL,
-  `PER_USU` varchar(12) NOT NULL
+  `PER_USU` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -171,7 +171,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`CED_USU`, `NOM_USU`, `APE_USU`, `CLA_USU`, `PER_USU`) VALUES
-('1802', 'Mateo', 'Martinez', 'mmmm', 'clinica'),
+('1802', 'Mateo', 'Martinez', 'mmmm', 'secretaria'),
 ('1803', 'John', 'Jacome', 'jjjj', 'cliente');
 
 --
@@ -182,7 +182,9 @@ INSERT INTO `usuarios` (`CED_USU`, `NOM_USU`, `APE_USU`, `CLA_USU`, `PER_USU`) V
 -- Indices de la tabla `citas`
 --
 ALTER TABLE `citas`
-  ADD PRIMARY KEY (`ID_CIT`);
+  ADD PRIMARY KEY (`ID_CIT`),
+  ADD KEY `FK_ID_DOC_ATE` (`ID_DOC_ATE`),
+  ADD KEY `FK_ID_PAC_ATE` (`ID_PAC_ATE`);
 
 --
 -- Indices de la tabla `diagnosticos`
