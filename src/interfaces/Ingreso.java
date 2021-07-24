@@ -104,7 +104,7 @@ public class Ingreso extends javax.swing.JFrame {
     }
     
     public void abrirInterfazCliente() {
-        Citas ventana = new Citas();
+        Cliente ventana = new Cliente();
         this.dispose();
         ventana.setVisible(true);
     }
