@@ -71,18 +71,23 @@ public class Ingreso extends javax.swing.JFrame {
             // obtener la tabla de la base de datos
             //
             String sql = "";
-            sql = "select CLA_USU from usuarios where CED_USU = '" + dato + "'";
+            sql = "select CLA_USU, PER_USU from usuarios where CED_USU = '" + dato + "'";
             //
             Statement psd = cn.createStatement();
             ResultSet rs = psd.executeQuery(sql); // RECORRER POR COLUMNAS
             while (rs.next()) {
                 campos[0] = rs.getString("CLA_USU");
+                campos[1] = rs.getString("PER_USU");
             }
             if (campos[0] == null) {
                 JOptionPane.showMessageDialog(null, "Usuario no registrado");
                 LimpiarTextos();
             } else if (campos[0].equals(dato2)) {
-                abrirInterfaz();
+                if(campos[1].equals("cliente")){
+                    abrirInterfazCliente();
+                } else if(campos[1].equals("clinica")){
+                    abrirInterfaz();
+                }
             } else {
                 LimpiarTextoContraseña();
                 JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
@@ -93,6 +98,12 @@ public class Ingreso extends javax.swing.JFrame {
     }
 
     public void abrirInterfaz() {
+        Citas ventana = new Citas();
+        this.dispose();
+        ventana.setVisible(true);
+    }
+    
+    public void abrirInterfazCliente() {
         Citas ventana = new Citas();
         this.dispose();
         ventana.setVisible(true);
