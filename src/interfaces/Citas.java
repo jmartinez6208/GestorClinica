@@ -37,7 +37,7 @@ public class Citas extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setIconImage(getIconImage());
-        this.setTitle("Sistema de Control de Citas");
+        this.setTitle("Sistema de Control de Citas - Clinica");
         cargarImagen(this.jdskPrincipal, foto1);
     }
 

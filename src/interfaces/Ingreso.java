@@ -98,12 +98,14 @@ public class Ingreso extends javax.swing.JFrame {
     }
 
     public void abrirInterfaz() {
+        JOptionPane.showMessageDialog(null, "Ha ingresado como funcionario de la clínica");
         Citas ventana = new Citas();
         this.dispose();
         ventana.setVisible(true);
     }
     
     public void abrirInterfazCliente() {
+        JOptionPane.showMessageDialog(null, "Ha ingresado como cliente de la clínica");
         Cliente ventana = new Cliente();
         this.dispose();
         ventana.setVisible(true);
