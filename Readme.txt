@@ -1,3 +1,2 @@
 Gestor Clinica.
-Hola soy John
-Joao Jácome
+## Add Readme here.
